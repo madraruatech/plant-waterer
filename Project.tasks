@@ -2,9 +2,23 @@
 
 - http://eeenthusiast.com/house-plant-watering-automation-arduino
 
+Approach:
+  Have a sensor in each pot
+  Send the moisture data to the controller each hour
+  If any pot is dry start pump and open valve to that pot (maybe)
+  Once pot moisture level is above minimum, stop pump and close valve
+
 
 # Hardware
-
+ ☐ Arduino Uno controller
+ ☐ Hygrometer sensor (per pot)
+ ☐ Water pump
+ ☐ Water valve to control flow (per pot)
+ ☐ Tubing
+ ☐ Water container (10 litre water bottle)
+ ☐ Cables
 
 # Code
-
+ ☐ Hygrometer data handler, check data each hour
+ ☐ Start pump / Stop pump
+ ☐ Open pot valve / Close pot valve
