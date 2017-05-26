@@ -17,7 +17,7 @@ Here
 
 # Wiring
 
-Diagram here
+![Plant waterer wiring](images/plantwaterer-wiring.jpg)
 
 # TODO
 
