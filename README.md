@@ -10,7 +10,7 @@ Here
 
 *NOTE: Many of these components were procured in China, they may not be easily available in other countries.*
 
-- Arduino board: Yun
+- Arduino board: UNO
 - Moisture sensor: 
 - Relay: 
 - Water pump: Solar
