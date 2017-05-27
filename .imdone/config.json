@@ -1,0 +1,52 @@
+{
+  "exclude": [
+    "^(node_modules|bower_components|\\.imdone|target|build|dist|logs)[\\/\\\\]?|\\.(git|svn|hg|npmignore)|\\~$|\\.(jpg|png|gif|swp|ttf|otf)$"
+  ],
+  "watcher": true,
+  "keepEmptyPriority": true,
+  "code": {
+    "include_lists": [
+      "TODO",
+      "DOING",
+      "DONE",
+      "PLANNING",
+      "FIXME",
+      "ARCHIVE",
+      "HACK",
+      "CHANGED",
+      "XXX",
+      "IDEA",
+      "NOTE",
+      "REVIEW",
+      "1",
+      "2"
+    ]
+  },
+  "lists": [
+    {
+      "name": "1",
+      "hidden": false
+    },
+    {
+      "name": "2",
+      "hidden": false
+    },
+    {
+      "name": "TODO",
+      "hidden": false
+    }
+  ],
+  "marked": {
+    "gfm": true,
+    "tables": true,
+    "breaks": false,
+    "pedantic": false,
+    "smartLists": true,
+    "langPrefix": "language-"
+  },
+  "sync": {
+    "id": "5928ebf48409e028371f3890",
+    "name": "plant-waterer",
+    "useImdoneioForPriority": true
+  }
+}

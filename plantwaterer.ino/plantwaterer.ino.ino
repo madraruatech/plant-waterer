@@ -41,7 +41,7 @@ void loop()
         // Wet == low sensor values
     {
         Serial.println("No need to water");
-        // TODO: Wait here 4 hours (no need for constant monitoring)
+        // TODO:0 Wait here 4 hours (no need for constant monitoring) id:3
         // Is this efficient?
         // delay(14400000);
     }
@@ -54,7 +54,7 @@ void loop()
         digitalWrite(relay, HIGH);
     }
     // Wait a while to allow water absorption
-    // TODO: there is some condition here that this is not working - need to turn off pump after n milliseconds, then re-test
+    // TODO:0 there is some condition here that this is not working - need to turn off pump after n milliseconds, then re-test id:4
     delay(1000); // % seconds, then rechecking...
     digitalWrite(greenLED, LOW); // Toggle green led
     digitalWrite(relay, LOW); // Turn off the pump
