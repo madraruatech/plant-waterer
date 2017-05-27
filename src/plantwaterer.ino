@@ -40,7 +40,7 @@ void loop()
         if (sensorValue < dryValue)
         // Wet == low sensor values
         {
-                Serial.println("No need to water");
+                Serial.println("No need to water...");
                 // TODO:0 Wait here 4 hours (no need for constant monitoring) id:5
                 // Is this efficient?
                 // delay(14400000);
