@@ -11,14 +11,18 @@ Here
 *NOTE: Many of these components were procured in China, they may not be easily available in other countries.*
 
 - Arduino board: UNO
-- Moisture sensor: 
-- Relay: 
+- Moisture sensor:
+- Relay:
 - Water pump: Solar
 
 # Wiring
 
 ![Plant waterer wiring](images/plantwaterer-wiring.jpg)
 
-# TODO
+# Libraries
 
-- Resolve issue of over watering. The pump pushes a lot of water in a short time and the soil takes time to absorb it, this means the sensor lags and too much water is given.
+All libraries are included in the lib dir in the project.
+
+Using the following:
+
+- [elapsedMillis](https://github.com/pfeerick/elapsedMillis

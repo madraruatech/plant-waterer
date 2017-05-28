@@ -1,7 +1,6 @@
 /*
    Refer to README for connection information
  */
-// TODO: Document the use of libraries id:10 gh:2
 #include <elapsedMillis.h>
 
 // Constants
