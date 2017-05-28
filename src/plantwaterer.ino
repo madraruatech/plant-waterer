@@ -1,30 +1,48 @@
 /*
    Refer to README for connection information
  */
+#include <elapsedMillis.h>
+
+// Constants
+// If soil is wet, sleep for a few hours (4)
+int WETSOILSLEEP = 3000;
+// int WETSOILSLEEP = 14400000;
+// Control period the pump is on to avoid flooding
+//  and allow soil absorption
+unsigned int WATERDURATION = 3000;
+
 // Variables
 // If the sensor returns a higher value than this - water
 int dryValue = 850;
 // Sensor values
 int sensorValue = 0;
+// boolean to control messages
+bool pumpOn = false;
+
 // Connections
-// Green light power connects to pin            D13
+// Green LED power connects to pin            D13
 int greenLED = 13;
 // Soil moisture sensor connects to Analog pin  A0
 int soilSensor = 0;
 // Connect the "IN" on the relay to pin         D3
 int relay = 3;
+// Set up a time for the pump
+elapsedMillis timer0;
+#define interval WATERDURATION
+
 /*
    Setup
  */
 void setup()
 {
-        // Start recording text at the Serial Monitor
-        Serial.begin(9600);
-        // Use a green led to some running state
-        pinMode(greenLED, OUTPUT);
-        // Setup relay to control pump
-        pinMode(relay, OUTPUT);
-        Serial.println("Monitoring - START");
+    // Start recording text at the Serial Monitor
+    Serial.begin(9600);
+    // Use a green led to some running state
+    pinMode(greenLED, OUTPUT);
+    // Setup relay to control pump
+    pinMode(relay, OUTPUT);
+    Serial.println("Monitoring - START");
+    timer0 = 0; // clear the timer at the end of startup
 }
 
 /*
@@ -32,30 +50,36 @@ void setup()
  */
 void loop()
 {
-        // When the relay voltage is "low", pump is 'off'
-        digitalWrite(relay, LOW);
-        // Read from moisture sensor
-        sensorValue = analogRead(soilSensor);
-        Serial.println(sensorValue);
-        if (sensorValue < dryValue)
-        // Wet == low sensor values
-        {
-                Serial.println("No need to water...");
-                // TODO:0 Wait here 4 hours (no need for constant monitoring) id:5
-                // Is this efficient?
-                // delay(14400000);
-        }
-        else // Dry == high values
-        {
-                // Toggle green led to show running state
-                digitalWrite(greenLED, HIGH);
+    // When the relay voltage is "low", pump is 'off'
+    // digitalWrite(greenLED, LOW);
+    // digitalWrite(relay, LOW);
+    // Read from moisture sensor - a low number will be returned from a wetter reading
+    sensorValue = analogRead(soilSensor);
+    // If it needs watering only do it for a set period (3000 millis)
+    if (sensorValue > dryValue)
+    {
+        if (timer0 > interval) {
+            pumpOn = !pumpOn;
+            if (pumpOn) {
+                Serial.println("Sensor value: "+String(sensorValue)+" vs. dry value: "+String(dryValue));
                 Serial.println("Watering now...");
-                // Turn voltage to relay to high so power to pump is on
-                digitalWrite(relay, HIGH);
+            }
+            else {
+                Serial.println("Watering paused...");
+            }
+            timer0 -= interval; //reset the timer
+            int ledPin = digitalRead(greenLED);
+            int relayPin = digitalRead(relay);
+            // Control: read the current state and write the opposite
+            digitalWrite(greenLED, !ledPin);
+            digitalWrite(relay, !relayPin);
         }
-        // Wait a while to allow water absorption
-        // TODO:0 there is some condition here that this is not working - need to turn off pump after n milliseconds, then re-test id:1
-        delay(1000); // % seconds, then rechecking...
+    }
+    else {
+        Serial.println("Pump off");
+        pumpOn = false;
         digitalWrite(greenLED, LOW); // Toggle green led
         digitalWrite(relay, LOW); // Turn off the pump
+        delay(WETSOILSLEEP); // Can wait a while if the soil is wet - 4 hours
+    }
 }
