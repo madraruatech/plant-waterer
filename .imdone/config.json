@@ -24,15 +24,11 @@
   },
   "lists": [
     {
-      "name": "1",
-      "hidden": false
-    },
-    {
-      "name": "2",
-      "hidden": false
-    },
-    {
       "name": "TODO",
+      "hidden": false
+    },
+    {
+      "name": "1",
       "hidden": false
     }
   ],
@@ -48,5 +44,12 @@
     "id": "5928ebf48409e028371f3890",
     "name": "plant-waterer",
     "useImdoneioForPriority": true
+  },
+  "meta": {
+    "gh": {
+      "urlTemplate": "https://github.com/avastmick/plant-waterer/issues/%s",
+      "titleTemplate": "View github issue %s",
+      "icon": "icon-octoface"
+    }
   }
 }

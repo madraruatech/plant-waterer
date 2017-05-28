@@ -21,7 +21,7 @@
 
 
 #
-# Template #1:0 General project. Test it using existing `platformio.ini`. id:0
+# Template General project.
 #
 
 # language: python
@@ -41,7 +41,7 @@
 
 
 #
-# Template #2:0 The project is intended to by used as a library with examples id:2
+# Template 2: The project is intended to by used as a library id:8
 #
 
 # language: python

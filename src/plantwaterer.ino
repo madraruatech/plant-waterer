@@ -1,6 +1,7 @@
 /*
    Refer to README for connection information
  */
+// TODO: Document the use of libraries id:10 gh:2
 #include <elapsedMillis.h>
 
 // Constants
@@ -47,6 +48,8 @@ void setup()
 
 /*
    Loop @ ~1 sec
+
+   TODO: Bug in looping, where the interval timer is backing up for the pump action when delayed. This will cause issues when the delay() is set to hours, rather than seconds... id:6 gh:1
  */
 void loop()
 {
