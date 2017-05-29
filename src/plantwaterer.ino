@@ -4,6 +4,7 @@
 #include <elapsedMillis.h>
 
 // Constants
+// TODO: +Feature add a means to update flow and read interval id:11 gh:3
 // If soil is wet, sleep for a few hours (4)
 int WETSOILSLEEP = 3000;
 // int WETSOILSLEEP = 14400000;
@@ -48,7 +49,7 @@ void setup()
 /*
    Loop @ ~1 sec
 
-   TODO: Bug in looping, where the interval timer is backing up for the pump action when delayed. This will cause issues when the delay() is set to hours, rather than seconds... id:6 gh:1
+   TODO: +Bug in looping, where the interval timer is backing up for the pump action when delayed. This will cause issues when the delay() is set to hours, rather than seconds... id:6 gh:1
  */
 void loop()
 {
