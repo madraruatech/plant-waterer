@@ -1,7 +1,7 @@
 # Love your plants
 *IN PROGRESS: Working, but not primetime*
 
-An automation project using Arduino to water house plants.
+An automation project using Arduino to water house plants. This project is a simple "starter" project to show how to wire up and program an automated plant waterer.
 
 ## Functionality
 
@@ -32,8 +32,6 @@ An automation project using Arduino to water house plants.
 - Better diagram required
 - Long-term testing
 
-This project is a simple
-
 ## Build steps
 
 Here
@@ -57,4 +55,4 @@ All libraries are included in the lib dir in the project.
 
 Using the following: (*SUBJECT TO CHANGE*)
 
-- [elapsedMillis](https://github.com/pfeerick/elapsedMillis
+- [elapsedMillis](https://github.com/pfeerick/elapsedMillis)
